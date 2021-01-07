@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Page Design</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+<style type="text/css">
+
+</style>
+<p>First name: <input data-bind="value: firstName" /></p>
+<p>Last name: <input data-bind="value: lastName" /></p>
+<h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
+</head>
+<body>
+    <script>
+        // Here's my data model
+var ViewModel = function(first, last) {
+    this.firstName = ko.observable(first);
+    this.lastName = ko.observable(last);
+ 
+   // this.fullName = ko.pureComputed(function() {
+        // Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
+       // return this.firstName() + " " + this.lastName();
+   // }, this);
+};
+ 
+ 
+ko.applyBindings(new ViewModel("Planet1", "Earth23"));
+        
+    </script>
+</body>
+</html>
